@@ -30,16 +30,45 @@ dependencies:
   flutter:
     sdk: flutter
 
-  geocoding: ^1.0.5
-  geolocator: ^6.1.1
-  velocity_x: ^2.5.0
-  http: any
-  shared_preferences: ^2.0.15
+
+  google_fonts:
+  velocity_x:
+
+  ##-----------------------------------------------
+  ## Utilities
+  flutter_open_whatsapp:
+
+  pin_entry_text_field: ^0.1.4
+  fluttertoast: #error handling
+  flutter_datetime_picker:
+  pin_code_text_field:
+  shared_preferences: #Local Storage
+
+
+  ##-----------------------------------------------
+  ## Firebase
+  cloud_firestore:
+  firebase_auth:
+
+  ##-----------------------------------------------
+  ## State Management
+  provider:
+
+  #-----------------------------------------------
+  ## Location/Maps
+  geolocator: #Device Location
+  google_maps_flutter:
+  flutter_google_maps:
+  geoflutterfire:
+
+  # --------------------------------------------------
+  ## Flutter Web
+  flutter_for_web: ^1.0.0
+  http:
+  flutter_for_web_ui: ^1.0.0
+  firebase_auth_web:
+  firebase_core_web:
   rflutter_alert: ^1.0.3
-  pin_code_text_field: ^1.8.0
-  fluttertoast: ^8.0.9
-  flutter_datetime_picker: ^1.5.1
-  google_fonts: ^3.0.1
 
 
   # The following adds the Cupertino Icons font to your application.

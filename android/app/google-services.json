@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "374066545933",
+    "project_id": "zippy-e492a",
+    "storage_bucket": "zippy-e492a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374066545933:android:c2a4f5e3595e0190e6dc44",
+        "android_client_info": {
+          "package_name": "tech.zippyin.zippy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374066545933-uos0frn6pgo42m5dk5u9n76kngonq3ku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzbSWi67RQ3cy68N4yTmt5NyO7bH9eQlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374066545933-uos0frn6pgo42m5dk5u9n76kngonq3ku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

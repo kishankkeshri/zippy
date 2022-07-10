@@ -18,8 +18,8 @@ class LoadLocationMap extends StatefulWidget {
   final GeoPoint point;
   final onSaved;
   const LoadLocationMap({
-    Key key,
-    this.point,
+    required Key key,
+    required this.point,
     @required this.onSaved,
   }) : super(key: key);
   @override

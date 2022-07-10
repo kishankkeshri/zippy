@@ -8,7 +8,7 @@ class JoinClusterCard extends StatefulWidget {
   final Cluster cluster;
   final String clusterID;
 
-  const JoinClusterCard({Key key, this.cluster, this.clusterID})
+  const JoinClusterCard({required Key key, required this.cluster, required this.clusterID})
       : super(key: key);
   @override
   _JoinClusterCardState createState() =>

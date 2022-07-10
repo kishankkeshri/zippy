@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_google_maps/flutter_google_maps.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zippy/models/Cluster.dart';
 import 'package:zippy/models/currentUser.dart';
@@ -20,7 +20,7 @@ import 'package:zippy/provider/carPoolingProvider.dart';
 
 class ClusterLocationPage extends StatefulWidget {
   const ClusterLocationPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
   @override
   _ClusterLocationPageState createState() => _ClusterLocationPageState();
@@ -35,7 +35,7 @@ class _ClusterLocationPageState extends State<ClusterLocationPage> {
   }
 
   GeoCoord center = GeoCoord(22.528380, 75.920596);
-  String searchAddress;
+  late String searchAddress;
   bool isNormalMap = true;
   TextEditingController conte = TextEditingController();
 
@@ -53,12 +53,12 @@ class _ClusterLocationPageState extends State<ClusterLocationPage> {
   Future<Position> _getLocation() async {
     Position pos;
     SharedPreferences spfs = await SharedPreferences.getInstance();
-    double lat = spfs.getDouble('myLat');
-    double lng = spfs.getDouble('myLng');
-    if (lat == null && await Geolocator().isLocationServiceEnabled()) {
-      pos = await Geolocator().getCurrentPosition();
+    double? lat = spfs.getDouble('myLat');
+    double? lng = spfs.getDouble('myLng');
+    if (lat == null && await Geolocator.isLocationServiceEnabled()) {
+      pos = await Geolocator.getCurrentPosition();
     } else {
-      pos = await Geolocator().getLastKnownPosition(
+      pos = await Geolocator.getLastKnownPosition(
           desiredAccuracy: LocationAccuracy.best,
           locationPermissionLevel: GeolocationPermission.location);
     }

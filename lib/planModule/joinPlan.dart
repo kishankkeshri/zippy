@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zippy/provider/carPoolingProvider.dart';
 import 'package:zippy/LocationModule/loadLocationScreen.dart';
 import 'package:zippy/models/Cluster.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'joinClusterCard.dart';

@@ -130,7 +130,7 @@ class Cluster {
 class ClusterCard extends StatelessWidget {
   final Cluster cluster;
   final String clusterID;
-  ClusterCard({this.cluster, this.clusterID});
+  ClusterCard({required this.cluster, required this.clusterID});
 
   @override
   Widget build(BuildContext context) {

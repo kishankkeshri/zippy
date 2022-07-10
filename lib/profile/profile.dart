@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:zippy/provider/carPoolingProvider.dart';
 import 'package:zippy/home/gradients.dart';
 import 'package:zippy/models/currentUser.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ProfilePage extends StatefulWidget {

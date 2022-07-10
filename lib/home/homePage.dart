@@ -4,7 +4,7 @@ import 'package:zippy/LocationModule/clusterLocationPage.dart';
 import 'package:zippy/home/drawer.dart';
 import 'package:zippy/home/gradients.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:zippy/loginModule/signuppage.dart';
 import 'package:zippy/models/request.dart';
 import 'package:zippy/profile/profile.dart';
@@ -166,7 +166,7 @@ Widget _dialogBuilder() {
 
 class SearchBar extends StatefulWidget {
   final scaffoldKey;
-  SearchBar({Key key, @required this.scaffoldKey}) : super(key: key);
+  SearchBar({Key? key, @required this.scaffoldKey}) : super(key: key);
 
   @override
   _SearchBarState createState() => _SearchBarState(scaffoldKey);

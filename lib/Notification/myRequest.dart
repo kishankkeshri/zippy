@@ -11,13 +11,13 @@ class MyrequestCard extends StatefulWidget {
   final Cluster entry;
   final String uid;
 
-  const MyrequestCard({Key key, this.entry, this.uid}) : super(key: key);
+  const MyrequestCard({required Key key, required this.entry, required this.uid}) : super(key: key);
   @override
   _MyrequestCardState createState() => _MyrequestCardState();
 }
 
 class _MyrequestCardState extends State<MyrequestCard> {
-  Cluster entry;
+  late Cluster entry;
   @override
   void initState() {
     super.initState();
@@ -157,7 +157,7 @@ class _MyrequestCardState extends State<MyrequestCard> {
                       // size: 30.0,
                     ),
                   ),
-                  entry.requests[widget.uid].isAccepted
+                  entry.requests[widget.uid]!.isAccepted
                       ? FlatButton(
                           onPressed: () {},
                           child: Row(

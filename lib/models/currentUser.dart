@@ -9,16 +9,16 @@ class CurrentUser {
   String get phoneNo => user.phoneNumber;
   String get userName => user.displayName;
   String get userEmail => user.email;
-  double lat;
-  double lng;
-  String password;
-  FirebaseUser user;
+  late double lat;
+  late double lng;
+  late String password;
+  late User user;
   // collection ref. to update user in firestore
   final CollectionReference userData =
-      Firestore.instance.collection('UserData');
+      FirebaseFirestore.instance.collection('UserData');
 
-  Future<FirebaseUser> getCurrentUser() async {
-    user = await FirebaseAuth.instance.currentUser();
+  Future<User> getCurrentUser() async {
+    user = await FirebaseAuth.instance.currentUser;
     return user;
   }
 
@@ -35,7 +35,7 @@ class CurrentUser {
     };
   }
 
-  Future<void> storeUserInMemory(FirebaseUser user) async {
+  Future<void> storeUserInMemory(User user) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString("username", user.displayName);
     sharedPreferences.setString('email', user.email);
@@ -45,7 +45,7 @@ class CurrentUser {
 
   Future updateUserData(String uid, String username, String email,
       String password, String phoneNo) async {
-    return await userData.document(uid).setData({
+    return await userData.doc(uid).set({
       'username': username,
       'email': email,
       'uid': uid,

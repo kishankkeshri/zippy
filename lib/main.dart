@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:zippy/provider/carPoolingProvider.dart';
 import 'package:zippy/loginModule/signuppage.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 import 'home/homePage.dart';
 import 'routes/refreshPage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() => runApp(MyApp());
 

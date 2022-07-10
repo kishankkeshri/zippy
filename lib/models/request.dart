@@ -52,11 +52,11 @@ class Request {
   bool isAccepted;
   int requestTime;
 
-  Request(
-      {this.requestUserID,
-      this.isAccepted,
-      this.phoneNo,
-      this.requestUserName});
+  Request({
+      this.requestUserID = " ",
+      this.isAccepted = false,
+      this.phoneNo= " ",
+      this.requestUserName = " "});
 
   Request.fromMap(Map data) {
     this.requestUserID = data["requestUserID"] ?? "";
@@ -79,7 +79,7 @@ class Request {
 
 class RequestCard extends StatelessWidget {
   final Request request;
-  RequestCard({this.request});
+  RequestCard({required this.request});
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +98,7 @@ class RequestCard extends StatelessWidget {
               request.requestUserName,
               style: Theme.of(context)
                   .textTheme
-                  .headline5
+                  .headline5!
                   .apply(color: Colors.black),
             ),
           ),

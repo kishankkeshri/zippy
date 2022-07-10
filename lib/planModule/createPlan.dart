@@ -5,7 +5,7 @@ import 'package:zippy/provider/carPoolingProvider.dart';
 import 'package:zippy/home/gradients.dart';
 import 'package:zippy/models/Cluster.dart';
 import 'package:zippy/planModule/joinPlan.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 import 'datetimepicker.dart';
 import 'package:zippy/LocationModule/loadLocationScreen.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -61,13 +61,13 @@ class _CreatePlanFormState extends State<CreatePlanForm> {
   final _formKey = GlobalKey<FormState>();
 
   Cluster cluster = clusters[0];
-  DateTime _date;
-  LatLng initloc;
-  LatLng finloc;
-  String initlocString;
-  String finlocString;
-  TextEditingController conteinit;
-  TextEditingController contefin;
+  late DateTime _date;
+  late LatLng initloc;
+  late LatLng finloc;
+  late String initlocString;
+  late String finlocString;
+  late TextEditingController conteinit;
+  late TextEditingController contefin;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -221,8 +221,8 @@ class _CreatePlanFormState extends State<CreatePlanForm> {
             Divider(),
             GestureDetector(
               onTap: () async {
-                if (_formKey.currentState.validate()) {
-                  _formKey.currentState.save();
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
                   cluster.leavingTime = _date.millisecondsSinceEpoch;
                   cluster.initialLocation = initlocString;
                   cluster.finalLocation = finlocString;
@@ -274,10 +274,10 @@ class FormField extends StatelessWidget {
   final String initVal;
 
   FormField({
-    this.labelText,
-    this.validator,
-    this.onSaved,
-    this.initVal,
+    required this.labelText,
+    required this.validator,
+    required this.onSaved,
+    required this.initVal,
   });
   @override
   Widget build(BuildContext context) {

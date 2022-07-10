@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class RefreshPage extends StatefulWidget {
@@ -7,7 +8,7 @@ class RefreshPage extends StatefulWidget {
 }
 
 class _RefreshPageState extends State<RefreshPage> {
-  String email;
+  late String email;
 
   @override
   void initState() {
@@ -32,5 +33,10 @@ class _RefreshPageState extends State<RefreshPage> {
         child: CircularProgressIndicator(),
       ),
     );
+  }
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('email', email));
   }
 }

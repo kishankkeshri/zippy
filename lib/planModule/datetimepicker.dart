@@ -28,10 +28,10 @@ class _DateTimePickerState extends State<DateTimePicker> {
   var onSaved2;
   _DateTimePickerState(
       {this.onSaved,
-      this.date,
-      this.datestring,
-      this.time,
-      this.timestring,
+      required this.date,
+      required this.datestring,
+      required this.time,
+      required this.timestring,
       this.onSaved2});
   @override
   Widget build(BuildContext context) {

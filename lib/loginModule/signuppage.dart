@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:zippy/provider/carPoolingProvider.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -18,7 +18,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   bool isSignUp = false;
-  FirebaseUser user;
+  late User user;
   // to hold values of phone no. input
   TextEditingController userPhoneConte = TextEditingController();
 
@@ -26,7 +26,7 @@ class _SignUpState extends State<SignUp> {
   bool hasError = false;
   String userName = "";
 
-  String basicValidator(String value) {
+  String? basicValidator(String value) {
     if (value == '') {
       return 'Input Required';
     } else {
@@ -120,6 +120,7 @@ class _SignUpState extends State<SignUp> {
     if (_response != null) {
       // save the current user in memory and current state
       Fluttertoast.showToast(msg: 'Updating user', timeInSecForIosWeb: 5);
+      await FirebaseAuth.instance.currentUser.updateProfile(displayName:user.displayName);
       UserUpdateInfo info = new UserUpdateInfo();
       info.displayName = userName;
       if (isSignUp) await _response.updateProfile(info);

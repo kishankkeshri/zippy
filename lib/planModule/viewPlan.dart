@@ -5,14 +5,14 @@ import 'package:zippy/home/gradients.dart';
 import 'package:zippy/models/Cluster.dart';
 import 'package:zippy/models/currentUser.dart';
 import 'package:zippy/models/request.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class ViewPlan extends StatelessWidget {
   final Cluster cluster;
   final String clusterID;
   final bool showButton;
-  ViewPlan({this.cluster, this.clusterID, @required this.showButton});
+  ViewPlan({required this.cluster, required this.clusterID, required this.showButton});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

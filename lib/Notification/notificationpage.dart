@@ -5,7 +5,7 @@ import 'package:zippy/Notification/myRequest.dart';
 import 'package:zippy/home/gradients.dart';
 import 'package:zippy/models/Cluster.dart';
 import 'package:zippy/planModule/viewPlan.dart';
-import 'package:zippy/provider/carPoolingProvider.dart';
+import 'package:provider/provider.dart';
 // import 'package:flutter_for_web/cupertino.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -69,21 +69,21 @@ class _NotificationPageState extends State<NotificationPage> {
 }
 
 class Choice {
-  const Choice({this.title});
+  const Choice({required this.title});
   final String title;
 }
 
 class EntryCard extends StatefulWidget {
   final Cluster entry;
   final String uid;
-  const EntryCard({this.entry, this.uid});
+  const EntryCard({required this.entry, required this.uid});
   @override
   _EntryCardState createState() => _EntryCardState(entry: entry);
 }
 
 class _EntryCardState extends State<EntryCard> {
   Cluster entry;
-  _EntryCardState({this.entry});
+  _EntryCardState({required this.entry});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -108,7 +108,7 @@ class _EntryCardState extends State<EntryCard> {
                       children: <Widget>[
                         Expanded(
                           child: Text(
-                            entry.requests[widget.uid].requestUserName
+                            entry.requests[widget.uid]!.requestUserName
                                 .toUpperCase(),
                             style: TextStyle(fontSize: 18),
                           ).text.extraBold.make(),
@@ -217,7 +217,7 @@ class _EntryCardState extends State<EntryCard> {
                       // size: 30.0,
                     ),
                   ),
-                  entry.requests[widget.uid].isAccepted
+                  entry.requests[widget.uid]!.isAccepted
                       ? FlatButton(
                           onPressed: () {},
                           child: Row(
