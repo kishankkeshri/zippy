@@ -32,7 +32,7 @@ class CarPoolingProvider with ChangeNotifier {
 
   Future<String> loadGlobalClusterData({bool force = false}) async {
     if (force || globalClustersMap.length == 0) {
-      await Firestore.instance
+      await FirebaseFirestore.instance
           .collection("clusters")
           .getDocuments()
           .then((value) {
@@ -53,7 +53,7 @@ class CarPoolingProvider with ChangeNotifier {
   Future<String> loadMyClustersHistoryData({bool force = false}) async {
     if (force || myClustersHistoryMap.length == 0) {
       currentUser.user = await currentUser.getCurrentUser();
-      await Firestore.instance
+      await FirebaseFirestore.instance
           .collection("clusters")
           .where("adminUserID", isEqualTo: currentUser.uid)
           .getDocuments()
